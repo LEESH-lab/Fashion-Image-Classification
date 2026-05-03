@@ -23,3 +23,22 @@ This project was developed and evaluated using PyTorch.
 **Installation:**
 ```bash
 pip install torch torchvision datasets gradio matplotlib seaborn scikit-learn numpy pillow
+```
+
+## 4. Training Instructions
+To train the EfficientNet-V2-S model with Class-Weighted Loss and Custom Data Augmentation, run the `train.py` script. The script automatically downloads the Hugging Face dataset and saves the weights as `best_model.pth`.
+```bash
+python train.py --batch_size 32 --epochs 20 --lr 0.001
+```
+
+## 5. Evaluation Instructions
+To evaluate the trained model on the test dataset and generate visual performance metrics (such as the 141x141 Confusion Matrix, Minority/Majority class graphs), run:
+```bash
+python evaluate.py --model_path ./best_model.pth
+```
+
+## 6. How to Run the Inference Demo
+We provide an inference script to test the model on individual images. You can pass a sample image to see the model's top predicted fashion category and its confidence score.
+```bash
+python inference_demo.py --model_path ./best_model.pth --image_path ./sample_image.jpg
+```
